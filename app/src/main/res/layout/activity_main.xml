@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button"
-        android:onClick="checkAnswer"
+        android:onClick="aAnswer"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button2"
-        android:onClick="checkAnswer"
+        android:onClick="bAnswer"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true" />
@@ -45,18 +45,9 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button3"
-        android:onClick="checkAnswer"
+        android:onClick="cAnswer"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button4"
-        android:onClick="checkAnswer"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/button3"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

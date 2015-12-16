@@ -1,5 +1,6 @@
 package io.github.xninjakittyx.kuwiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.Snackbar;
 import android.os.Bundle;
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         opt1=(Button)findViewById(R.id.button);
         opt2=(Button)findViewById(R.id.button2);
         opt3=(Button)findViewById(R.id.button3);
-        opt4=(Button)findViewById(R.id.button4);
         setQuestionView();
     }
 
@@ -49,6 +49,99 @@ public class MainActivity extends AppCompatActivity {
         opt2.setText(currentQ.getOPTB());
         opt3.setText(currentQ.getOPTC());
         qid++;
+    }
+
+    public void aAnswer(View v) {
+        if (currentQ.getANSWER().equals(opt1.getText())) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Correct!", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+            score++;
+        }
+        else {
+
+            Snackbar snackbar = Snackbar
+                    .make(v, "The correct answer was " + currentQ.getANSWER() + "!", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+        }
+
+        if (qid < 5) {
+            currentQ = quesList.get(qid);
+            setQuestionView();
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            Bundle b = new Bundle();
+            b.putInt("score", score); //Your score
+            intent.putExtras(b); //Put your score to your next Intent
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    public void bAnswer(View v) {
+
+        if (currentQ.getANSWER().equals(opt2.getText())) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Correct!", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+            score++;
+
+        }
+        else {
+
+            Snackbar snackbar = Snackbar
+                    .make(v, "The correct answer was " + currentQ.getANSWER() + "!", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+        }
+
+        if (qid < 5) {
+            currentQ = quesList.get(qid);
+            setQuestionView();
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            Bundle b = new Bundle();
+            b.putInt("score", score); //Your score
+            intent.putExtras(b); //Put your score to your next Intent
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    public void cAnswer(View v) {
+        if (currentQ.getANSWER().equals(opt3.getText())) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Correct!", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+            score++;
+
+        }
+        else {
+
+            Snackbar snackbar = Snackbar
+                    .make(v, "The correct answer was " + currentQ.getANSWER() + "!", Snackbar.LENGTH_LONG);
+
+            snackbar.show();
+        }
+
+        if (qid < 5) {
+            currentQ = quesList.get(qid);
+            setQuestionView();
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            Bundle b = new Bundle();
+            b.putInt("score", score); //Your score
+            intent.putExtras(b); //Put your score to your next Intent
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void checkAnswer(View v) {
@@ -75,14 +168,6 @@ public class MainActivity extends AppCompatActivity {
             score++;
 
         }
-        else if (currentQ.getANSWER() == "D" && findViewById(v.getId()) == opt4) {
-            Snackbar snackbar = Snackbar
-                    .make(v, "Correct!", Snackbar.LENGTH_LONG);
-
-            snackbar.show();
-            score++;
-
-        }
         else {
 
             Snackbar snackbar = Snackbar
@@ -90,8 +175,17 @@ public class MainActivity extends AppCompatActivity {
 
             snackbar.show();
         }
-
-        currentQ=quesList.get(qid);
-        setQuestionView();
+        if (qid < 5) {
+            currentQ = quesList.get(qid);
+            setQuestionView();
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+            Bundle b = new Bundle();
+            b.putInt("score", score); //Your score
+            intent.putExtras(b); //Put your score to your next Intent
+            startActivity(intent);
+            finish();
+        }
     }
 }
